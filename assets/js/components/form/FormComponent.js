@@ -1,5 +1,6 @@
 import css from "./FormComponent.css?inline";
 import Store from "../store";
+import StarIcon from "../../../../assets/images/icon-star.svg";
 
 export default class FormComponent extends HTMLElement {
   constructor() {
@@ -21,7 +22,7 @@ export default class FormComponent extends HTMLElement {
       </style>
       <article class="rating-form__block">
         <figure>
-          <img src="assets/images/icon-star.svg" alt="Rating icon" />
+          <img src="${StarIcon}" alt="Rating icon" />
           <figcaption class="visually-hidden">Rating icon</figcaption>
         </figure>
         <h1>How did we do?</h1>

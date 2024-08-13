@@ -1,5 +1,6 @@
 import css from "./ResultComponent.css?inline";
 import Store from "../store";
+import IllustrationImage from "../../../../assets/images/illustration-thank-you.svg";
 
 export default class ResultComponent extends HTMLElement {
   constructor() {
@@ -17,7 +18,7 @@ export default class ResultComponent extends HTMLElement {
       </style>
       <article class="result-block">
         <figure>
-          <img src="assets/images/illustration-thank-you.svg" alt="Rating receipt illustration" />
+          <img src="${IllustrationImage}" alt="Rating receipt illustration" />
           <figcaption class="visually-hidden">Rating receipt illustration</figcaption>
         </figure>
         <p class="result">You selected ${Store.currentRating} out of 5</p>
