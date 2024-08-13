@@ -177,3 +177,10 @@ button {
     letter-spacing: 2px;
   }
 }
+
+p.error {
+  font-variation-settings: "wght" var(--font-weight-regular);
+  font-size: 0.875rem; /* 14px */
+  color: var(--color-error);
+  text-align: center;
+}
