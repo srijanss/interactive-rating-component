@@ -1,10 +1,29 @@
 @define-mixin media-query-desktop {
-  @media (min-width: 1200px) {
+  @media (min-width: 550px) {
     @mixin-content;
   }
 }
-@define-mixin media-query-tablet {
-  @media (min-width: 768px) {
-    @mixin-content;
+
+@define-mixin host-border-box {
+  :host,
+  :host *,
+  :host *::before,
+  :host *::after {
+    box-sizing: border-box;
+  }
+}
+
+@define-mixin article-component {
+  article {
+    width: 100%;
+    padding: 1.5rem 1.5rem 2rem 1.5rem; /* top-right-left: 24px ; bottom: 32px;*/
+    background-image: radial-gradient(circle at center top, #232a34, #181e27);
+    border-radius: 0.9375rem; /* 15px */
+
+    @mixin media-query-desktop {
+      width: 412px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
   }
 }
