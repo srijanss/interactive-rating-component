@@ -18,13 +18,14 @@ export default class FormComponent extends HTMLElement {
       </style>
       <article class="rating-form__block">
         <figure>
-          <img src="assets/images/icon-star.svg" alt="Star icon" />
+          <img src="assets/images/icon-star.svg" alt="Rating icon" />
+          <figcaption class="visually-hidden">Rating icon</figcaption>
         </figure>
         <h1>How did we do?</h1>
         <p>Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!</p>
         <form id="rating-form">
           <fieldset>
-            <legend hidden>Rating</legend>
+            <legend class="visually-hidden">Select a rating score</legend>
             ${this.ratings
               .map(
                 (rating) =>

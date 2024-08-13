@@ -46,18 +46,6 @@
       line-height: 1.6;
     }
   }
-  & p.result {
-    margin: 1.5rem 0;
-    padding-top: 0.25rem;
-    @mixin media-query-desktop {
-      margin: 2rem 0;
-    }
-  }
-
-  & p.content {
-    padding: 0 0.25rem;
-    text-align: center;
-  }
 }
 
 article {
@@ -66,7 +54,11 @@ article {
   align-items: center;
 }
 
-.result {
+figure {
+  margin-top: 10px;
+}
+
+p.result {
   width: 168px;
   height: 32px;
   font-variation-settings: "wght" var(--font-weight-regular);
@@ -78,9 +70,16 @@ article {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 1.5rem 0;
+  padding-top: 0.25rem;
 
   @mixin media-query-desktop {
     width: 193px;
     font-size: 0.9375rem; /* 15px */
+    margin: 2rem 0;
   }
+}
+p.content {
+  padding: 0 0.25rem;
+  text-align: center;
 }

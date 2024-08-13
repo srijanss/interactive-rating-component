@@ -18,6 +18,7 @@ export default class ResultComponent extends HTMLElement {
       <article>
         <figure>
           <img src="assets/images/illustration-thank-you.svg" alt="Rating receipt illustration" />
+          <figcaption class="visually-hidden">Rating receipt illustration</figcaption>
         </figure>
         <p class="result">You selected 4 out of 5</p>
         <h1>Thank you!</h1>
