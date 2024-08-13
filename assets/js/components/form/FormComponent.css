@@ -131,14 +131,14 @@ fieldset {
     cursor: pointer;
 
     &:hover {
-      background-color: var(--color-white);
+      background-color: var(--color-primary);
       & ~ span {
         color: var(--color-dark-blue);
       }
     }
 
     &:checked {
-      background-color: var(--color-primary);
+      background-color: var(--color-white);
       & ~ span {
         color: var(--color-dark-blue);
       }
