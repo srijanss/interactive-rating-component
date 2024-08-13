@@ -1,0 +1,40 @@
+@import "./_css-reset.css";
+@import "./_mixins.css";
+
+:root {
+  --color-primary: hsl(25, 97%, 53%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-light-grey: hsl(217, 12%, 63%);
+  --color-dark-blue: hsl(217, 12%, 63%);
+  --color-very-dark-blue: hsl(216, 12%, 8%);
+  --font-family: Overpass;
+  --font-size: 16px;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  color: var(--color-white);
+  background-color: var(--color-very-dark-blue);
+}
+
+img {
+  max-inline-size: 100%;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  padding: 3rem 0 1rem 0;
+  & a {
+    color: hsl(228, 45%, 44%);
+  }
+}
