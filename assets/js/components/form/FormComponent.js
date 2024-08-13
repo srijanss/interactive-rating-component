@@ -1,18 +1,25 @@
 import css from "./FormComponent.css?inline";
-import Store from "../store";
 import StarIcon from "../../../../assets/images/icon-star.svg";
 
 export default class FormComponent extends HTMLElement {
   constructor() {
     super();
+    this.ratings = [1, 2, 3, 4, 5];
+    this.baseURL = import.meta.env.BASE_URL;
   }
 
   connectedCallback() {
     this.shadow = this.attachShadow({ mode: "open" });
+    this.renderHandler();
+  }
+
+  renderHandler() {
+    // history.pushState({ currentRating: null }, null, `${this.baseURL}/`);
     this.render();
     this.errorMessage = this.shadow.querySelector(".error");
     this.handleRatingChange();
     this.handleFormSubmit();
+    this.handleOnPopState();
   }
 
   render() {
@@ -30,7 +37,7 @@ export default class FormComponent extends HTMLElement {
         <form id="rating-form">
           <fieldset>
             <legend class="visually-hidden">Select a rating score</legend>
-            ${Store.ratings
+            ${this.ratings
               .map(
                 (rating) =>
                   `
@@ -69,12 +76,28 @@ export default class FormComponent extends HTMLElement {
         this.errorMessage.hidden = false;
         return;
       }
-      Store.currentRating = data.rating;
-      const resultComponent = this.shadow.querySelector("result-component");
-      resultComponent.render();
-      const formArticle = this.shadow.querySelector(".rating-form__block");
-      formArticle.setAttribute("style", "display: none");
+      this.navigateToResultView(data.rating);
       form.reset();
+    });
+  }
+
+  navigateToResultView(currentRating) {
+    const resultComponent = this.shadow.querySelector("result-component");
+    history.pushState({ currentRating }, null, `${this.baseURL}/`);
+    const resultRendered = resultComponent.render();
+    if (resultRendered) {
+      this.hideFormView();
+    }
+  }
+
+  hideFormView() {
+    const formArticle = this.shadow.querySelector(".rating-form__block");
+    formArticle.setAttribute("style", "display: none");
+  }
+
+  handleOnPopState() {
+    window.addEventListener("popstate", () => {
+      this.renderHandler();
     });
   }
 }
