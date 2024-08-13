@@ -45,7 +45,7 @@ export default class FormComponent extends HTMLElement {
           <p class="error" hidden>Please select a rating before submitting</p>
         </form>
       </article> 
-      <result-component hidden></result-component>
+      <result-component></result-component>
     `;
   }
 
@@ -60,8 +60,6 @@ export default class FormComponent extends HTMLElement {
 
   handleFormSubmit() {
     const form = this.shadow.querySelector("#rating-form");
-    const formArticle = this.shadow.querySelector(".rating-form__block");
-    const resultComponent = this.shadow.querySelector("result-component");
     form.addEventListener("submit", (event) => {
       event.preventDefault();
       const formData = new FormData(form);
@@ -71,7 +69,9 @@ export default class FormComponent extends HTMLElement {
         return;
       }
       Store.currentRating = data.rating;
+      const resultComponent = this.shadow.querySelector("result-component");
       resultComponent.render();
+      const formArticle = this.shadow.querySelector(".rating-form__block");
       formArticle.setAttribute("style", "display: none");
       form.reset();
     });

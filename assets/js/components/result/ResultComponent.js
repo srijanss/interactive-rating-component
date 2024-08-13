@@ -11,12 +11,11 @@ export default class ResultComponent extends HTMLElement {
   }
 
   render() {
-    self.hidden = false;
     this.shadow.innerHTML = `
       <style>
         ${css}
       </style>
-      <article>
+      <article class="result-block">
         <figure>
           <img src="assets/images/illustration-thank-you.svg" alt="Rating receipt illustration" />
           <figcaption class="visually-hidden">Rating receipt illustration</figcaption>
@@ -26,5 +25,9 @@ export default class ResultComponent extends HTMLElement {
         <p class="content">We appreciate you taking the time to give a rating. If you ever need more support, don’t hesitate to get in touch!</p>
       </article>
     `;
+    setTimeout(() => {
+      const resultBlock = this.shadow.querySelector(".result-block");
+      resultBlock.classList.add("active");
+    }, 1);
   }
 }
